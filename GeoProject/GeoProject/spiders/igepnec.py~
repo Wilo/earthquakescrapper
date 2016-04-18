@@ -1,0 +1,30 @@
+from scrapy import Spider
+from scrapy.selector import Selector
+from GeoProject.items import IgepnItem
+
+class IgepnSpider(Spider):
+    name = "ignepnSpider"
+    allowed_domains = ["eventos.igepn.edu.ec"]
+    start_urls = (
+        'http://eventos.igepn.edu.ec/eqevents/events.xml',
+    )
+
+    def parse(self, response):
+        selector = Selector(response)
+        site = selector.xpath('//markers/marker')
+        items = []
+        print site
+        
+         
+"""
+        for feed in site:
+            ignepn =  IgnepnItem()
+            ignepn['latitud'] = feed.xpath('title/text()').extract()
+            ignepn['longitud'] = feed.xpath('description/text()').extract()
+            ignepn['date'] = feed.xpath('pubDate/text()').extract()
+            ignepn['link'] = feed.xpath('link/text()').extract()
+            ignepn['img'] = feed.xpath('enclosure/@url').extract()
+            items.append(ignepn)
+"""
+      
+      # return items
