@@ -12,7 +12,7 @@ class IgepnItem(scrapy.Item):
     # define the fields for your item here like:
     Latitud = scrapy.Field()
     Longitud = scrapy.Field()
-    Profundidad = scrapy.Field()
+    Localizacion = scrapy.Field()
+    Magnitud = scrapy.Field()
     Fecha = scrapy.Field()
     Z = scrapy.Field()
-
